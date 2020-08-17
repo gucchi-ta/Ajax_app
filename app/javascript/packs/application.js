@@ -7,6 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+//require("<該当ファイルをパスで指定>")のように記述することで、作成したJSファイルを読み込む。
+require("../checked")
+require("../memo")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
