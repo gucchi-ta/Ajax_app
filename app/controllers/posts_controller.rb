@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end
   
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    Post.create(content: params[:content], checked: false)    #「checked: false」でメモ作成時に未読の情報を保存
+    render json:{ post: post }    # 元々リダイレクトしてたが、レスポンスをJSONで返すように変更
   end
 
   def checked
