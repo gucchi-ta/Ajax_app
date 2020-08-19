@@ -29,7 +29,7 @@ function check() {
       //リクエストの送信が成功した(レスポンスの受信がある)場合の処理
       XHR.onload = () => {
         //レスポンスがあった場合の処理
-        const item = XHR.response.post;    // XHR.responseでレスポンスされてきたJSONにアクセス
+        const item = XHR.response.post;    // 「XHR.response」でレスポンスとして返却されたレコードデータを取得
         if (item.checked === true) {    //既読の時
           post.setAttribute("data-check", "true");
         } else if (item.checked === false) {    //未読のとき
