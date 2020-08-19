@@ -4,6 +4,8 @@
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
 
+<div id="list">
+</div>
 
 <% @posts.each do |post| %>
    <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>     <%# 「data-id」「data-check」の二つのカステムデータ属性(オリジナルの属性)を作成。 %>
