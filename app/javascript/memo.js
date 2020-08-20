@@ -1,14 +1,14 @@
 function memo() {
   const submit = document.getElementById("submit");
   submit.addEventListener("click", (e) => {
+    //オブジェクトを生成し、引数にフォームの要素を渡すことで、そのフォームに入力された値を取得。
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
-    XHR.open("OPEN","/posts",true);
-    XHR.respnseType = "json";
+    XHR.open("POST","/posts",true);
+    XHR.responseType = "json";
     XHR.send(formData);
     XHR.onload = () => {
-      //レスポンスとして返却されたメモのレコードデータを取得
-      const item = XHR.response.post;
+      const item = XHR.response.post;   //レスポンスとして返却されたメモのレコードデータ(コントローラーのcreateアクションで定義された変数post)を取得
       const list = document.getElementById("list");
       const formText = document.getElementById("content");
       // 「メモとして描画する部分のHTML」を定義
@@ -30,13 +30,12 @@ function memo() {
       } else {
         return null;
       }
-
-      XHR.onerror = function () {
-        alert("Request failed");
-      };
-  
-      e.preventDefault();
     };
+    XHR.onerror = function () {
+      alert("Request failed");
+    };
+  
+    e.preventDefault();
   })
 }
 window.addEventListener("load", memo);
