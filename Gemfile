@@ -54,3 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
+
+group :production do    # 開発環境ではなく本番環境で使用するのでgroupが:productionになっている
+  gem 'rails_12factor'
+end
